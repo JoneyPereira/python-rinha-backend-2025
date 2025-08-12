@@ -213,4 +213,4 @@ Veja [DOCKER_HUB_GUIDE.md](DOCKER_HUB_GUIDE.md) para instruções detalhadas.
 - **Cache**: Monitoramento via Redis
 
 Esta implementação segue todas as especificações da Rinha de Backend 2025, incluindo restrições de recursos, arquitetura de múltiplas instâncias e estratégia de processamento de pagamentos.
-<p>Repositoria da aplicação [GitHub](https://github.com/JoneyPereira/python-rinha-backend-2025).
+Repositoria da aplicação [GitHub](https://github.com/JoneyPereira/python-rinha-backend-2025).
