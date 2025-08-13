@@ -129,19 +129,19 @@ uvicorn.run(
 deploy:
   resources:
     limits:
-      cpus: "0.5"      # app1
-      memory: "150MB"   # app1
-      cpus: "0.5"      # app2
-      memory: "150MB"   # app2
+      cpus: "0.4"      # app1
+      memory: "80MB"   # app1
+      cpus: "0.4"      # app2
+      memory: "80MB"   # app2
       cpus: "0.1"      # nginx
-      memory: "50MB"    # nginx
+      memory: "40MB"   # nginx
       cpus: "0.3"      # postgres
-      memory: "100MB"   # postgres
+      memory: "80MB"   # postgres
       cpus: "0.1"      # redis
-      memory: "50MB"    # redis
+      memory: "40MB"   # redis
 ```
 
-**Total**: 1.5 CPU cores, 350MB RAM (conforme especificação)
+**Total**: 1.3 CPU cores, 320MB RAM (dentro dos limites de 1.5 CPU + 350MB)
 
 ## Monitoramento e Métricas
 

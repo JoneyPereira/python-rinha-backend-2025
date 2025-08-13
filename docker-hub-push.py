@@ -104,10 +104,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "150MB"
+          cpus: "0.4"
+          memory: "80MB"
     networks:
       - rinha-network
+      - payment-processor
 
   app2:
     image: {username}/rinha-backend-2025-python:latest
@@ -125,10 +126,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "150MB"
+          cpus: "0.4"
+          memory: "80MB"
     networks:
       - rinha-network
+      - payment-processor
 
   # Load Balancer (Nginx)
   nginx:
@@ -145,7 +147,7 @@ services:
       resources:
         limits:
           cpus: "0.1"
-          memory: "50MB"
+          memory: "40MB"
     networks:
       - rinha-network
 
@@ -164,9 +166,10 @@ services:
       resources:
         limits:
           cpus: "0.3"
-          memory: "100MB"
+          memory: "80MB"
     networks:
       - rinha-network
+      - payment-processor
 
   # Redis para cache
   redis:
@@ -179,13 +182,16 @@ services:
       resources:
         limits:
           cpus: "0.1"
-          memory: "50MB"
+          memory: "40MB"
     networks:
       - rinha-network
+      - payment-processor
 
 networks:
   rinha-network:
     driver: bridge
+  payment-processor:
+    external: true
 
 volumes:
   postgres_data:

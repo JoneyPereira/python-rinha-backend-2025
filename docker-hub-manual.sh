@@ -77,10 +77,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "150MB"
+          cpus: "0.4"
+          memory: "80MB"
     networks:
       - rinha-network
+      - payment-processor
 
   app2:
     image: $FULL_IMAGE_NAME
@@ -98,10 +99,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "150MB"
+          cpus: "0.4"
+          memory: "80MB"
     networks:
       - rinha-network
+      - payment-processor
 
   # Load Balancer (Nginx)
   nginx:
@@ -118,7 +120,7 @@ services:
       resources:
         limits:
           cpus: "0.1"
-          memory: "50MB"
+          memory: "40MB"
     networks:
       - rinha-network
 
@@ -137,9 +139,10 @@ services:
       resources:
         limits:
           cpus: "0.3"
-          memory: "100MB"
+          memory: "80MB"
     networks:
       - rinha-network
+      - payment-processor
 
   # Redis para cache
   redis:
@@ -152,13 +155,16 @@ services:
       resources:
         limits:
           cpus: "0.1"
-          memory: "50MB"
+          memory: "40MB"
     networks:
       - rinha-network
+      - payment-processor
 
 networks:
   rinha-network:
     driver: bridge
+  payment-processor:
+    external: true
 
 volumes:
   postgres_data:
@@ -180,4 +186,4 @@ echo "   docker-compose -f docker-compose.public.yml up -d"
 echo ""
 echo "🔍 Para verificar no Docker Hub:"
 echo "   Acesse: https://hub.docker.com/r/$USERNAME/$IMAGE_NAME"
-echo "======================================" 
+echo "======================================"
